@@ -13,10 +13,12 @@ protocol HomeViewModelType {
 
     //Networking
     func getHome()
+    func getDetailOfMovie(movieId: Int)
     
     //Data Source
     func getMoviesCount() -> Int
     func itemFor(row: Int) -> Movie
+    func getCurrentDetailMovie() -> DetailMovie? 
     
     //Routing
     func didSelectMovieWith(row: Int)
@@ -43,6 +45,7 @@ class HomeViewModel {
     // MARK: - Properties
     fileprivate let service: HomeService
     var movies: [Movie] = []
+    var currentDetailMovie: DetailMovie? = nil
     
     // MARK: - Init
     init(service: HomeService) {
@@ -70,6 +73,19 @@ extension HomeViewModel: HomeViewModelType {
         }
     }
     
+    func getDetailOfMovie(movieId: Int) {
+        self.currentDetailMovie = nil
+        self.service.getMovieDetail(movieId: movieId) { [weak self] data, error in
+            guard let self = self else { return }
+            if error != nil {
+                self.viewDelegate?.failure()
+            } else {
+                self.currentDetailMovie = data
+                self.viewDelegate?.succes()
+            }
+        }
+    }
+    
     //Data Source 
     func getMoviesCount() -> Int {
         return self.movies.count
@@ -79,6 +95,10 @@ extension HomeViewModel: HomeViewModelType {
         return self.movies[row]
     }
     
+    func getCurrentDetailMovie() -> DetailMovie? {
+        return self.currentDetailMovie
+    }
+    
     //Routing
     func back() {
         self.coordinatorDelegate?.back()
@@ -86,7 +106,6 @@ extension HomeViewModel: HomeViewModelType {
     
     func didSelectMovieWith(row: Int) {
         let movie = itemFor(row: row)
-        dump(movie)
         self.coordinatorDelegate?.goToDetailOfThis(movie)
     }
 }

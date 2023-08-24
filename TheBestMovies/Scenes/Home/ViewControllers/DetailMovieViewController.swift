@@ -26,25 +26,29 @@ class DetailMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        self.overViewTextView.text = ""
+        self.getDetailOfMovie()
     }
     
-    func setup() {
-        //just for test
-        if let movie = self.movie {
-            self.movieNameLabel.text = movie.title
-            self.movieYearLabel.text = movie.releaseDate.getYearFromDate()
-            if let url = URL(string: getPosterImageUrl(movie: movie)) {
-                self.posterImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                self.posterImageView.sd_setImage(with: url)
-                self.posterImageView.contentMode = .scaleAspectFit
-            }
-            self.overViewTextView.text = movie.overview
+    func getDetailOfMovie() {
+        if let movie = movie {
+            self.viewModel.getDetailOfMovie(movieId: movie.id)
         }
     }
     
+    func setupWith(_ movie: DetailMovie) {
+        self.movieNameLabel.text = movie.title
+        self.movieYearLabel.text = movie.releaseDate.getYearFromDate()
+        if let url = URL(string: getPosterImageUrl(movie: movie)) {
+            self.posterImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            self.posterImageView.sd_setImage(with: url)
+            self.posterImageView.contentMode = .scaleAspectFit
+        }
+        self.overViewTextView.text = movie.overview
+    }
+    
     //Helper
-    func getPosterImageUrl(movie: Movie) -> String {
+    func getPosterImageUrl(movie: DetailMovie) -> String {
         return "https://image.tmdb.org/t/p/original/" + movie.posterPath
     }
 
@@ -57,7 +61,9 @@ class DetailMovieViewController: UIViewController {
 extension DetailMovieViewController: HomeViewModelViewDelegate {
     func succes() {
         DispatchQueue.main.async {
-            
+            if let movie = self.viewModel.getCurrentDetailMovie() {
+                self.setupWith(movie)
+            }
         }
     }
     
