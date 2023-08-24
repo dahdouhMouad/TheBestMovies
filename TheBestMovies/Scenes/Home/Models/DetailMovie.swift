@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailMovie: Codable {
+struct DetailMovie: Codable,MovieProtocol {
     let adult: Bool
     let backdropPath: String
     let budget: Int
@@ -23,6 +23,7 @@ struct DetailMovie: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    static var posterBaseUrl: String = Endpoints.originalImageBaseUrl
 
     enum CodingKeys: String, CodingKey {
         case adult

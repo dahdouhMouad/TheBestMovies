@@ -28,6 +28,9 @@
 		520D5C852A968CF600C82731 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 520D5C842A968CF600C82731 /* SDWebImage */; };
 		520D5C872A9690AB00C82731 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D5C862A9690AB00C82731 /* String.swift */; };
 		520D5C892A97680C00C82731 /* DetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D5C882A97680C00C82731 /* DetailMovie.swift */; };
+		520D5C8B2A97718D00C82731 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D5C8A2A97718D00C82731 /* UIViewController.swift */; };
+		520D5C8D2A9773B900C82731 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 520D5C8C2A9773B900C82731 /* Localizable.strings */; };
+		520D5C8F2A97794F00C82731 /* MovieProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520D5C8E2A97794F00C82731 /* MovieProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		520D5C812A96888D00C82731 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		520D5C862A9690AB00C82731 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		520D5C882A97680C00C82731 /* DetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovie.swift; sourceTree = "<group>"; };
+		520D5C8A2A97718D00C82731 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		520D5C8C2A9773B900C82731 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		520D5C8E2A97794F00C82731 /* MovieProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 			children = (
 				520D5C4E2A965ADB00C82731 /* Assets.xcassets */,
 				520D5C502A965ADB00C82731 /* LaunchScreen.storyboard */,
+				520D5C8C2A9773B900C82731 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +158,7 @@
 			children = (
 				520D5C782A966FDA00C82731 /* Movies.swift */,
 				520D5C882A97680C00C82731 /* DetailMovie.swift */,
+				520D5C8E2A97794F00C82731 /* MovieProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 				520D5C762A96669500C82731 /* UIStoryboard.swift */,
 				520D5C7A2A96838400C82731 /* ReusableView.swift */,
 				520D5C862A9690AB00C82731 /* String.swift */,
+				520D5C8A2A97718D00C82731 /* UIViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -271,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520D5C8D2A9773B900C82731 /* Localizable.strings in Resources */,
 				520D5C672A96616200C82731 /* Home.storyboard in Resources */,
 				520D5C522A965ADB00C82731 /* LaunchScreen.storyboard in Resources */,
 				520D5C802A96843500C82731 /* MovieTableViewCell.xib in Resources */,
@@ -293,11 +303,13 @@
 				520D5C5D2A965D0F00C82731 /* Coordinator.swift in Sources */,
 				520D5C722A9663F700C82731 /* HomeViewModel.swift in Sources */,
 				520D5C652A965F7400C82731 /* EndPoints.swift in Sources */,
+				520D5C8B2A97718D00C82731 /* UIViewController.swift in Sources */,
 				520D5C622A965DF100C82731 /* ApiClient.swift in Sources */,
 				520D5C772A96669500C82731 /* UIStoryboard.swift in Sources */,
 				520D5C702A9662E400C82731 /* HomeCoordinator.swift in Sources */,
 				520D5C742A96648C00C82731 /* HomeApiService.swift in Sources */,
 				520D5C872A9690AB00C82731 /* String.swift in Sources */,
+				520D5C8F2A97794F00C82731 /* MovieProtocol.swift in Sources */,
 				520D5C6E2A96628100C82731 /* MoviesListViewController.swift in Sources */,
 				520D5C7F2A96843500C82731 /* MovieTableViewCell.swift in Sources */,
 				520D5C892A97680C00C82731 /* DetailMovie.swift in Sources */,

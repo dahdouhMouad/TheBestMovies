@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TheBestMovies
+
+  Created by Macbook Pro on 24/8/2023.
+  
+*/
+
+"erreur_system" = "Une erreur est survenue ! Veuillez réessayer plus tard";
+"ok" = "Ok";

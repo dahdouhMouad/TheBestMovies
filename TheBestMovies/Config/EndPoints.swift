@@ -9,6 +9,8 @@ import Foundation
 
 enum Endpoints {
     static let baseURL = "https://api.themoviedb.org/3/"
+    static let originalImageBaseUrl = "https://image.tmdb.org/t/p/original/"
+    static let smallImageBaseUrl = "https://image.tmdb.org/t/p/w500/"
     
     case trendingMovies
     case detailOfMovie(_ id: Int)

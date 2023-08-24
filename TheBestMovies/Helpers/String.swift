@@ -19,5 +19,9 @@ extension String {
             return ""
         }
     }
+    
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 

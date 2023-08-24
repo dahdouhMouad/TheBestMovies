@@ -68,7 +68,7 @@ extension MoviesListViewController: HomeViewModelViewDelegate {
     
     func failure() {
         DispatchQueue.main.async {
-            print("failure")
+            self.displayAlert(errorTitle: "", error: "erreur_system".localized())
         }
     }
 }

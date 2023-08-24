@@ -22,7 +22,7 @@ struct MoviesData: Codable {
 }
 
 // MARK: - Result
-struct Movie: Codable {
+struct Movie: Codable,MovieProtocol {
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]
@@ -34,6 +34,7 @@ struct Movie: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    static var posterBaseUrl: String = Endpoints.smallImageBaseUrl
 
     enum CodingKeys: String, CodingKey {
         case adult

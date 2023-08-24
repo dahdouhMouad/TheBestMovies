@@ -108,44 +108,6 @@ public class ApiClient {
     }
 }
 
-// MARK: - Header's
-
-public extension ApiClient {
-    
-    func setAuthorization(header: String?) {
-        if let header = header {
-            addToHeader(value: header, key: "Authorization")
-        } else {
-            addToHeader(value: nil, key: "Authorization")
-        }
-    }
-
-    func setAccessToken(_ token: String?) {
-        if let token = token {
-            addToHeader(value: "Bearer \(token)", key: "Authorization")
-        } else {
-            addToHeader(value: nil, key: "Authorization")
-        }
-    }
-
-    func addToHeader(value: Any?, key: AnyHashable) {
-        var headers: [AnyHashable : Any]
-
-        if let currentHeaders = self.configuration.httpAdditionalHeaders {
-            headers = currentHeaders
-        } else {
-            defaultHeaders = ["Content-Type": "application/json; charset=utf-8"]
-            headers = defaultHeaders
-        }
-
-        headers[key] = value
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = headers
-        urlSession = URLSession(configuration: configuration)
-    }
-}
-
-
 // MARK: - REST API
 
 public extension ApiClient {
@@ -172,7 +134,6 @@ public extension ApiClient {
         guard var urlRequest = request.urlRequest else {
             return nil
         }
-        //self.setAccessToken(token)//they are other funcy Solution
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         print("REQUEST CURL ==>", urlRequest.cURL(pretty: true))
@@ -194,7 +155,7 @@ public extension ApiClient {
                 return
             }
             do {
-//                if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+//                if let JSONString = String(data: data, encoding: String.Encoding.utf8) {                 //For Debug Only
 //                    print("RESPONSE ==>", JSONString)
 //                }
                 let value = try JSONDecoder().decode(T.self, from: data)
@@ -252,8 +213,6 @@ extension URLRequest {
                 header += (pretty ? "--header " : "-H ") + "\'\(key): \(value)\' \(newLine)"
             }
         }
-        
-        //header += (pretty ? "--header " : "-H ") + " Authorization Bearer \(newLine) \(token)"
             
         if let bodyData = self.httpBody, let bodyString = String(data: bodyData, encoding: .utf8),  !bodyString.isEmpty {
             data = "--data '\(bodyString)'"
