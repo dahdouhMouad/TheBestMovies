@@ -13,8 +13,6 @@ public struct Request {
     public let root: String
     public let parameters: URLParameters?
     public let body: Any?
-     //public let token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNWZjZGI1ODE5ODg1M2ZjMGZiMDcxMjY5ZDIzYjQxNSIsInN1YiI6IjY0ZTY0NTdlMDZmOTg0MDBjYTU0MzgzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yJgn7XrxRjNMjmwceCKc0XjaqLep_9qpeo62iTf9V7E"
-    
     
     var url: URL? {
         guard let escaped = root.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
