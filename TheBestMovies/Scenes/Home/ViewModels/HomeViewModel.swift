@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol HomeViewModelType {
     var viewDelegate: HomeViewModelViewDelegate? { get set }
@@ -51,11 +50,6 @@ class HomeViewModel {
     init(service: HomeService) {
         self.service = service
     }
-
-    func start() {
-        
-    }
-    
 }
 
 

@@ -34,10 +34,6 @@ class Coordinator {
         childCoordinators = childCoordinators.filter { $0 is T  == false }
     }
 
-    func removeAllChildCoordinators() {
-        
-    }
-    
 }
 
 extension Coordinator: Equatable {
